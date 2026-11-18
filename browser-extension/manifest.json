@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Video Downloader Integration",
+  "short_name": "SmartDM",
+  "version": "1.0.0",
+  "description": "Automatically hand off browser downloads and direct media links to Smart Video Downloader.",
+  "permissions": [
+    "downloads",
+    "contextMenus",
+    "storage",
+    "cookies",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:48921/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart Video Downloader Integration",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

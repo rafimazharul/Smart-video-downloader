@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Video Downloader</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <img src="icons/icon48.png" alt="SmartDM" class="logo" />
+          <div>
+            <h1>Smart Video Downloader</h1>
+            <p class="subtitle">Browser Integration</p>
+          </div>
+        </div>
+        <span id="statusPill" class="pill pill-checking">Checking...</span>
+      </header>
+
+      <div id="liveStats" class="stats-card hidden">
+        <div class="stat">
+          <span class="stat-label">Active</span>
+          <strong id="activeCount">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Speed</span>
+          <strong id="liveSpeed">0 KB/s</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Total</span>
+          <strong id="totalCount">0</strong>
+        </div>
+      </div>
+
+      <div id="offlineBanner" class="offline-banner hidden">
+        <strong>Desktop app is not running.</strong>
+        <p>Start <em>Smart Video Downloader</em> on your PC to automatically capture downloads. While offline, browser downloads continue normally.</p>
+      </div>
+
+      <section class="card">
+        <div class="row">
+          <div>
+            <div class="row-title">Auto-Capture Downloads</div>
+            <div class="row-desc">Send clicked website downloads to the desktop app</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="enabledToggle" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="row border-top">
+          <div>
+            <div class="row-title">Minimum File Size</div>
+            <div class="row-desc">Ignore smaller files when size is known</div>
+          </div>
+          <select id="minSizeSelect" class="select">
+            <option value="0">All files</option>
+            <option value="1">&gt; 1 MB</option>
+            <option value="5">&gt; 5 MB</option>
+            <option value="20">&gt; 20 MB</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="card">
+        <label class="input-label" for="manualUrl">Send Direct URL to App</label>
+        <form id="manualForm" class="manual-form">
+          <input
+            type="url"
+            id="manualUrl"
+            placeholder="https://example.com/video.mp4"
+            required
+          />
+          <button type="submit" id="sendBtn">Download</button>
+        </form>
+        <div id="feedback" class="feedback hidden"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">Recent Captured Downloads</div>
+        <ul id="recentList" class="recent-list">
+          <li class="empty">No browser downloads captured yet.</li>
+        </ul>
+      </section>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

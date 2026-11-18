@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Electron custom titlebar drag regions */
+.app-drag {
+  -webkit-app-region: drag;
+}
+
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* iPhone Control Center Atmospheric Glass Canvas */
+.ios-canvas {
+  background-color: #e9f5f2;
+  background-image:
+    radial-gradient(circle at 12% 14%, rgba(16, 185, 129, 0.24) 0%, transparent 42%),
+    radial-gradient(circle at 86% 18%, rgba(45, 212, 191, 0.24) 0%, transparent 44%),
+    radial-gradient(circle at 55% 88%, rgba(14, 165, 164, 0.18) 0%, transparent 48%),
+    linear-gradient(145deg, #eefaf7 0%, #e4f3f2 52%, #edf6f9 100%);
+}
+
+.dark .ios-canvas {
+  background-color: #060e12;
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(16, 185, 129, 0.24) 0%, transparent 40%),
+    radial-gradient(circle at 88% 16%, rgba(20, 184, 166, 0.20) 0%, transparent 42%),
+    radial-gradient(circle at 72% 86%, rgba(6, 95, 70, 0.28) 0%, transparent 46%),
+    radial-gradient(circle at 22% 82%, rgba(15, 118, 110, 0.18) 0%, transparent 42%),
+    linear-gradient(155deg, #060d11 0%, #091519 48%, #071115 100%);
+}
+
+/* Frosted Control Center Glass Surfaces */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(26px) saturate(180%);
+  -webkit-backdrop-filter: blur(26px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 12px 32px -12px rgba(6, 78, 59, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark .glass-panel {
+  background: rgba(16, 30, 35, 0.56);
+  backdrop-filter: blur(26px) saturate(175%);
+  -webkit-backdrop-filter: blur(26px) saturate(175%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow:
+    0 16px 38px -14px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.glass-tile {
+  background: rgba(255, 255, 255, 0.54);
+  backdrop-filter: blur(22px) saturate(175%);
+  -webkit-backdrop-filter: blur(22px) saturate(175%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 8px 24px -10px rgba(6, 78, 59, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.dark .glass-tile {
+  background: rgba(255, 255, 255, 0.065);
+  backdrop-filter: blur(22px) saturate(175%);
+  -webkit-backdrop-filter: blur(22px) saturate(175%);
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  box-shadow:
+    0 10px 28px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+.glass-well {
+  background: rgba(15, 23, 42, 0.045);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.dark .glass-well {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark .glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Primary emerald-teal iOS gradient button */
+.ios-primary-btn {
+  background: linear-gradient(135deg, #10b981 0%, #0d9488 55%, #14b8a6 100%);
+  box-shadow:
+    0 8px 20px -6px rgba(16, 185, 129, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+.ios-primary-btn:hover {
+  filter: brightness(1.07);
+}
+
+/* Sleek subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 211, 153, 0.35);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 118, 110, 0.22);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 118, 110, 0.4);
+}
+
+/* GPU-composited emerald-aqua progress bar shimmer */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+.progress-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #059669 0%, #10b981 50%, #2dd4bf 100%);
+}
+
+.progress-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.42) 50%,
+    transparent 100%
+  );
+  will-change: transform;
+  animation: shimmerSweep 1.6s linear infinite;
+}
+
+@keyframes indeterminateSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.progress-indeterminate {
+  width: 45%;
+  animation: indeterminateSlide 1.5s ease-in-out infinite;
+}
